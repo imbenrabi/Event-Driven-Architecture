@@ -1,0 +1,16 @@
+# Ignore specific configuration files
+!.*rc.js
+!*.eslintignore
+!*.json
+dist/
+coverage/
+.eslintrc.js
+commitlint.config.ts
+
+/node_modules/*
+
+**/dist/*
+
+vite.config.ts
+
+package.json

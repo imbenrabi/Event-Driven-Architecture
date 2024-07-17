@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["esnext", "dom"],
+    "target": "esnext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "rootDir": "./src",
+    "declaration": true
+  },
+  "include": ["src", "global.d.ts"]
+}

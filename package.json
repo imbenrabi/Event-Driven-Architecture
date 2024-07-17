@@ -1,0 +1,59 @@
+{
+  "name": "events-service",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "description": "monorepo of placer's events firing service",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean-install": "rm -rf node_modules package-lock.json",
+    "commitlint": "commitlint --edit",
+    "build-server-types": "npm run --prefix packages/server build-ts",
+    "dev:server": "npm run --prefix packages/server dev",
+    "dev:client": "npm run --prefix packages/client dev",
+    "dev:kafka": "npm run --prefix packages/kafka dev",
+    "lint": "eslint 'packages/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'packages/**/*.{ts,tsx}' --fix --max-warnings=0",
+    "lint-staged": "lint-staged",
+    "prepare": "husky",
+    "test:server": "npm run --prefix packages/server test",
+    "test:providers": "npm run --prefix packages/providers test",
+    "test:kafka": "npm run --prefix packages/kafka test",
+    "test:all": "npm run test:server && npm run test:providers && npm run test:kafka",
+    "test:coverage:open:server": "npm run --prefix packages/server test:coverage:open",
+    "test:coverage:open:providers": "npm run --prefix packages/providers test:coverage:open",
+    "test:coverage:open:kafka": "npm run --prefix packages/kafka test:coverage:open",
+    "test:coverage:open:all": "npm run test:coverage:open:server && npm run test:coverage:open:providers && npm run test:coverage:open:kafka"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "typescript": "^5.4.5"
+  },
+  "lint-staged": {
+    "packages/**/*.ts": "eslint --fix --max-warnings=1"
+  },
+  "config": {
+    "pre-git": {
+      "enabled": true,
+      "pre-commit": [
+        "npm run lint-staged"
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
+  "author": "ben.rabinovich@placer.io"
+}

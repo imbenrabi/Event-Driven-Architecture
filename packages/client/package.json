@@ -1,0 +1,21 @@
+{
+  "name": "@events-service/client",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "events service tRPC client",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@events-service/server": "^0.0.1"
+  },
+  "devDependencies": {
+    "@trpc/client": "^10.45.2",
+    "vite": "^5.2.0"
+  },
+  "author": "ben.rabinovich@placer.io"
+}

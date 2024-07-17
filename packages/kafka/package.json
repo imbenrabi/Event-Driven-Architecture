@@ -1,0 +1,33 @@
+{
+  "name": "@events-service/kafka",
+  "version": "0.0.1",
+  "description": "events service kafka integration",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "dev": "tsx watch src/kafka.ts",
+    "test": "nyc --reporter=html mocha --require tsx '**/*.test.ts'",
+    "test:coverage:open": "nyc --reporter=html mocha --require tsx '**/*.test.ts' && open coverage/index.html"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.13.0",
+    "@types/sinon": "^17.0.3",
+    "chai": "^5.1.1",
+    "mocha": "^10.6.0",
+    "sinon": "^18.0.0",
+    "tsx": "^4.11.2"
+  },
+  "dependencies": {
+    "@events-service/providers": "^0.0.1",
+    "async-mutex": "^0.5.0",
+    "kafkajs": "^2.2.4",
+    "pino": "^9.2.0",
+    "pino-pretty": "^11.1.0",
+    "zod": "^3.23.8"
+  },
+  "author": "ben.rabinovich@placer.io"
+}
