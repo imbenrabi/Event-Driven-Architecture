@@ -1,10 +1,12 @@
 {
-  "name": "events-driven-architecture",
+  "name": "event-driven-architecture",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "description": "event driven architecture monorepo",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "clean-install": "rm -rf node_modules package-lock.json",
     "commitlint": "commitlint --edit",
@@ -37,10 +39,10 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "typescript": "^5.4.5",
-    "@events-driven-architecture/kafka": "workspace:*",
-    "@events-driven-architecture/providers": "workspace:*",
-    "@events-driven-architecture/server": "workspace:*",
-    "@events-driven-architecture/client": "workspace:*"
+    "@event-driven-architecture/kafka": "workspace:*",
+    "@event-driven-architecture/providers": "workspace:*",
+    "@event-driven-architecture/server": "workspace:*",
+    "@event-driven-architecture/client": "workspace:*"
   },
   "lint-staged": {
     "packages/**/*.ts": "eslint --fix --max-warnings=1"

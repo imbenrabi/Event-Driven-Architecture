@@ -1,9 +1,9 @@
 {
-  "name": "@events-driven-architecture/client",
+  "name": "@event-driven-architecture/client",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "description": "events service tRPC client",
+  "description": "tRPC client",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@events-driven-architecture/server": "workspace:*"
+    "@event-driven-architecture/server": "workspace:*"
   },
   "devDependencies": {
     "@trpc/client": "^10.45.2",

@@ -1,7 +1,7 @@
 {
-  "name": "@events-driven-architecture/providers",
+  "name": "@event-driven-architecture/providers",
   "version": "0.0.1",
-  "description": "events service providers integrations",
+  "description": "end service",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
