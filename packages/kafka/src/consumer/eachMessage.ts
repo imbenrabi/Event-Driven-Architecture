@@ -4,7 +4,7 @@ import {
   fireLogEvents,
   fireMetricEvents,
   fireTrackingEvents,
-} from "@events-service/providers/src";
+} from "@events-driven-architecture/providers/src";
 
 export async function eachMessage({ message, heartbeat }: EachMessagePayload) {
   try {

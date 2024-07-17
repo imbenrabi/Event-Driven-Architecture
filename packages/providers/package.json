@@ -1,5 +1,5 @@
 {
-  "name": "@events-service/providers",
+  "name": "@events-driven-architecture/providers",
   "version": "0.0.1",
   "description": "events service providers integrations",
   "license": "MIT",
@@ -19,5 +19,5 @@
     "mocha": "^10.6.0",
     "tsx": "^4.11.2"
   },
-  "author": "ben.rabinovich@placer.io"
+  "author": "imbenrabi@gmail.com"
 }

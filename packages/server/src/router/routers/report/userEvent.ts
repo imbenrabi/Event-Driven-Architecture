@@ -3,7 +3,7 @@ import {
   fireLogEvents,
   fireMetricEvents,
   fireTrackingEvents,
-} from "@events-service/providers/src/index";
+} from "@events-driven-architecture/providers/src/index";
 import { protectedProcedure } from "../../utils";
 import { ReportUserEventSchema } from "./schema";
 

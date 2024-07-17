@@ -1,6 +1,9 @@
 import { publicProcedure } from "../../utils";
 import { reportAnonymouseEventSchema } from "./schema";
-import { sendMessage, sendBatchOfMessages } from "@events-service/kafka/src";
+import {
+  sendMessage,
+  sendBatchOfMessages,
+} from "@events-driven-architecture/kafka/src";
 
 // this implementation is just a placeholder for the actual implementation
 export function createReportAnonymousEventRoute() {

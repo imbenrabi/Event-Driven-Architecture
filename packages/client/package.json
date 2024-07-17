@@ -1,5 +1,5 @@
 {
-  "name": "@events-service/client",
+  "name": "@events-driven-architecture/client",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -11,11 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@events-service/server": "^0.0.1"
+    "@events-driven-architecture/server": "workspace:*"
   },
   "devDependencies": {
     "@trpc/client": "^10.45.2",
     "vite": "^5.2.0"
   },
-  "author": "ben.rabinovich@placer.io"
+  "author": "imbenrabi@gmail.com"
 }
