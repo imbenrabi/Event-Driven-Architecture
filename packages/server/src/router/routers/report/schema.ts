@@ -35,13 +35,13 @@ const User = z.object({
   name: z.string(),
 });
 
-const PlEvent = z.union([TrackingEvent, TelemetryEvent]);
+const IEvent = z.union([TrackingEvent, TelemetryEvent]);
 
 export const reportAnonymouseEventSchema = z.object({
-  event: PlEvent,
+  event: IEvent,
 });
 
 export const ReportUserEventSchema = z.object({
-  event: PlEvent,
+  event: IEvent,
   user: User,
 });

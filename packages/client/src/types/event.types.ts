@@ -1,28 +1,16 @@
 export enum EventType {
   Tracking = "tracking",
   Metric = "metric",
-  Error = "error",
-  Log = "log",
 }
 
-type Provider =
-  | "beamer"
-  | "coralogix"
-  | "fe-telemetry"
-  | "fullstory"
-  | "google-analytics"
-  | "google-tag-manager"
-  | "hubspot"
-  | "segment"
-  | "sentry"
-  | "splunk";
+type Provider = "beamer" | "grafana" | "segment" | "splunk";
 
 interface BaseEventPayload {
   excludedProviders?: Array<Provider>;
 }
 
 interface TrackingEventPayload extends BaseEventPayload {
-  // Tracking event specific fields
+  someDimension: string;
 }
 
 interface TrackingEvent {
@@ -30,25 +18,13 @@ interface TrackingEvent {
   payload: TrackingEventPayload;
 }
 
-interface MetricEventPayload extends BaseEventPayload {}
+interface MetricEventPayload extends BaseEventPayload {
+  someMetric: number;
+}
 
 interface MetricEvent {
   type: EventType.Metric;
   payload: MetricEventPayload;
 }
 
-interface ErrorEventPayload extends BaseEventPayload {}
-
-interface ErrorEvent {
-  type: EventType.Error;
-  payload: ErrorEventPayload;
-}
-
-interface LogEventPayload extends BaseEventPayload {}
-
-interface LogEvent {
-  type: EventType.Log;
-  payload: LogEventPayload;
-}
-
-export type PlEvent = TrackingEvent | MetricEvent | ErrorEvent | LogEvent;
+export type IEvent = TrackingEvent | MetricEvent;

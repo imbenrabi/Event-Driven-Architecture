@@ -1,5 +1,5 @@
 import { eventsServiceClient } from "./eventsServiceClient";
-import { EventType, PlEvent } from "./types";
+import { EventType, IEvent } from "./types";
 
 interface EventButton {
   id: string;
@@ -13,7 +13,7 @@ const eventButtons: EventButton[] = [
 
 // actual implementation will be to call API gateway here -> it will in turn pass the request to the service with/without user
 
-async function triggerEvent(event: PlEvent) {
+async function triggerEvent(event: IEvent) {
   await eventsServiceClient.v1.report.anonymousEvent.mutate({ event });
   // Beacon implementation
   // const url = "API_GATEWAY_ENDPOINT"; // Replace with API Gateway endpoint
@@ -29,13 +29,27 @@ async function triggerEvent(event: PlEvent) {
 document.addEventListener("DOMContentLoaded", () => {
   eventButtons.forEach(({ id, type }) => {
     const button = document.getElementById(id);
-    button?.addEventListener("click", () => {
-      triggerEvent({
-        type,
-        payload: {
-          excludedProviders: ["segment", "fullstory"],
-        },
+    if (type === EventType.Metric) {
+      button?.addEventListener("click", () => {
+        triggerEvent({
+          type,
+          payload: {
+            excludedProviders: ["segment", "grafana"],
+            someMetric: Math.random(),
+          },
+        });
       });
-    });
+    }
+    if (type === EventType.Tracking) {
+      button?.addEventListener("click", () => {
+        triggerEvent({
+          type,
+          payload: {
+            excludedProviders: ["segment", "grafana"],
+            someDimension: "someDimension",
+          },
+        });
+      });
+    }
   });
 });

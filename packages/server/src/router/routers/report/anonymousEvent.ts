@@ -11,56 +11,6 @@ export function createReportAnonymousEventRoute() {
     .input(reportAnonymouseEventSchema)
     .mutation(async ({ ctx, input }) => {
       switch (input.event.type) {
-        case "error": {
-          const { success } = await sendMessage({
-            message: { value: "Error event fired 0" },
-            topic: "trpc-events-topic-a",
-          });
-          if (success) {
-            ctx.req.log.info("Message sent to Kafka successfully");
-          }
-          const { success: batchSuccess } = await sendBatchOfMessages([
-            {
-              topic: "trpc-events-topic-b",
-              messages: [
-                {
-                  value: "Error event fired 1",
-                },
-                { value: "Error event fired 2" },
-              ],
-            },
-          ]);
-          if (batchSuccess) {
-            ctx.req.log.info("Batch sent to Kafka successfully");
-          }
-
-          break;
-        }
-        case "log": {
-          const { success } = await sendMessage({
-            message: { value: "Log event fired 0" },
-            topic: "trpc-events-topic-a",
-          });
-          if (success) {
-            ctx.req.log.info("Message sent to Kafka successfully");
-          }
-          const { success: batchSuccess } = await sendBatchOfMessages([
-            {
-              topic: "trpc-events-topic-b",
-              messages: [
-                {
-                  value: "Log event fired 1",
-                },
-                { value: "Log event fired 2" },
-              ],
-            },
-          ]);
-          if (batchSuccess) {
-            ctx.req.log.info("Batch sent to Kafka successfully");
-          }
-
-          break;
-        }
         case "tracking": {
           const { success } = await sendMessage({
             message: { value: "Tracking event fired 0" },
