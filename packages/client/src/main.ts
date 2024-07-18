@@ -8,8 +8,6 @@ interface EventButton {
 
 const eventButtons: EventButton[] = [
   { id: "triggerMetricEvent", type: EventType.Metric },
-  { id: "triggerLogEvent", type: EventType.Log },
-  { id: "triggerErrorEvent", type: EventType.Error },
   { id: "triggerTrackingEvent", type: EventType.Tracking },
 ];
 
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       triggerEvent({
         type,
         payload: {
-          excludedProviders: ["beamer", "fe-telemetry"],
+          excludedProviders: ["segment", "fullstory"],
         },
       });
     });

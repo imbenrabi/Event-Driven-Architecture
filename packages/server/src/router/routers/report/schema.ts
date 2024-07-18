@@ -2,14 +2,8 @@ import { z } from "zod";
 
 const Provider = z.union([
   z.literal("beamer"),
-  z.literal("coralogix"),
-  z.literal("fe-telemetry"),
-  z.literal("fullstory"),
-  z.literal("google-analytics"),
-  z.literal("google-tag-manager"),
-  z.literal("hubspot"),
+  z.literal("grafana"),
   z.literal("segment"),
-  z.literal("sentry"),
   z.literal("splunk"),
 ]);
 
@@ -17,32 +11,22 @@ const BaseEventPayload = z.object({
   excludedProviders: z.array(Provider).optional(),
 });
 
-const TrackingEventPayload = BaseEventPayload;
+const TrackingEventPayload = BaseEventPayload.extend({
+  someDimension: z.string(),
+});
 
 const TrackingEvent = z.object({
   type: z.literal("tracking"),
   payload: TrackingEventPayload,
 });
 
-const MetricEventPayload = BaseEventPayload;
+const TelemetryEventPayload = BaseEventPayload.extend({
+  someMetric: z.number(),
+});
 
-const MetricEvent = z.object({
+const TelemetryEvent = z.object({
   type: z.literal("metric"),
-  payload: MetricEventPayload,
-});
-
-const ErrorEventPayload = BaseEventPayload;
-
-const ErrorEvent = z.object({
-  type: z.literal("error"),
-  payload: ErrorEventPayload,
-});
-
-const LogEventPayload = BaseEventPayload;
-
-const LogEvent = z.object({
-  type: z.literal("log"),
-  payload: LogEventPayload,
+  payload: TelemetryEventPayload,
 });
 
 const User = z.object({
@@ -51,7 +35,7 @@ const User = z.object({
   name: z.string(),
 });
 
-const PlEvent = z.union([TrackingEvent, MetricEvent, ErrorEvent, LogEvent]);
+const PlEvent = z.union([TrackingEvent, TelemetryEvent]);
 
 export const reportAnonymouseEventSchema = z.object({
   event: PlEvent,

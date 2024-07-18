@@ -1,10 +1,5 @@
 import { EachMessagePayload, KafkaMessage } from "kafkajs";
-import {
-  fireErrorEvents,
-  fireLogEvents,
-  fireMetricEvents,
-  fireTrackingEvents,
-} from "@event-driven-architecture/providers/src";
+import { triggerProcess } from "@event-driven-architecture/providers/src";
 
 export async function eachMessage({ message, heartbeat }: EachMessagePayload) {
   try {
@@ -18,9 +13,6 @@ export async function eachMessage({ message, heartbeat }: EachMessagePayload) {
 
 function processMessage(message: KafkaMessage) {
   // TODO implement processing of different types of messages
-  fireErrorEvents();
-  fireLogEvents();
-  fireMetricEvents();
-  fireTrackingEvents();
   console.log("Processing message:", message);
+  triggerProcess();
 }
