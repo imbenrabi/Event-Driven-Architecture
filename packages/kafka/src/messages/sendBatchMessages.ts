@@ -3,7 +3,7 @@ import { KafkaPartitionManager } from "../partitions";
 import { createProducer, createTransaction } from "../producer";
 import { createMessageKey, createTransactionalId } from "../utils";
 
-//currently implemented to send single topic per call
+// ? implementation of producer pool usage is as an example, thus commented out
 export async function sendBatchOfMessages(
   topicMessages: Array<TopicMessages>,
 ): Promise<{

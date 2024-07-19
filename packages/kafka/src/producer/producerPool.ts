@@ -10,6 +10,7 @@ export interface ProducerWithSemaphore {
   semaphore: Semaphore;
 }
 
+// This implementation is not complete but an example of how to use a producer pool with Semaphore - KafkaJS which in some cases can be useful for high throughput scenarios.
 export class ProducerPool {
   private producers: Map<string, ProducerWithSemaphore> = new Map();
   private poolSize: number;

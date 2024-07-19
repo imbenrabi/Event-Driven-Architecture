@@ -1,3 +1,3 @@
 export function triggerProcess() {
-  console.log("doing something according to kafka message");
+  console.log("sending data to one or more of the providers");
 }

@@ -1,7 +1,6 @@
 import { Consumer, ConsumerRunConfig } from "kafkajs";
 import { KafkaClient } from "../client";
 import { consumerGroupId, topics as defaultTopics } from "../constants";
-// import { ProducerPool } from "../producer";
 import { eachBatch } from "./eachBatch";
 import { eachMessage } from "./eachMessage";
 

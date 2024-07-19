@@ -4,7 +4,7 @@ import { createProducer, createTransaction } from "../producer";
 import { Topic } from "../types";
 import { createMessageKey, createTransactionalId } from "../utils";
 
-//currently implemented to send single topic per call
+// ? implementation of producer pool usage is as an example, thus commented out
 export async function sendMessage({
   message,
   topic,
