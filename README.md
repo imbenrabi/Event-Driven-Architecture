@@ -5,13 +5,14 @@ This project implements an event-driven architecture where events/messages are s
 # Notable Technologies
 
 - [**Bun**](https://bun.sh/)
+- [**Vite**](https://vitejs.dev/)
 - [**Docker**](https://www.docker.com/get-started)
 - [**KafkaJS**](https://kafka.js.org/)
 - [**Kafdrop**](https://github.com/obsidiandynamics/kafdrop)
 - [**tRPC**](https://trpc.io/)
 - [**Fastify**](https://www.fastify.io/)
 - [**Zod**](https://zod.dev/)
-- [**pino**](https://github.com/pinojs/pino)
+- [**Pino**](https://github.com/pinojs/pino)
 - [**Mocha**](https://mochajs.org/)
 - [**Chai**](https://www.chaijs.com/)
 - [**NYC**](https://github.com/istanbuljs/nyc)
