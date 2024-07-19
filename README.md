@@ -1,6 +1,6 @@
 # Event-Driven Architecture with Fastify, tRPC, and Kafka
 
-This project implements a event-driven flow where events/messages are sent from a client to a Kafka queue via a tRPC server, and subsequently to an end provider/service. The project is organized in a monorepo and includes repository management tools such as lint, Husky, and Commitlint.
+This project implements an event-driven architecture where events/messages are sent from a client to a Kafka queue via a tRPC server, and subsequently to an end provider/service. The project is organized in a monorepo and includes repository management tools such as lint, Husky, and Commitlint.
 
 # Notable Technologies
 
