@@ -1,12 +1,22 @@
 # Event-Driven Architecture with Fastify, tRPC, and Kafka
 
-This project implements a client-driven flow where events are sent from a client to a Kafka queue via a tRPC server, and subsequently to an end provider/service. The project is organized in a monorepo and includes repository management tools such as lint, Husky, and Commitlint.
+This project implements a event-driven flow where events/messages are sent from a client to a Kafka queue via a tRPC server, and subsequently to an end provider/service. The project is organized in a monorepo and includes repository management tools such as lint, Husky, and Commitlint.
 
 # Notable Technologies
 
+- [**Bun**](https://bun.sh/)
 - [**Docker**](https://www.docker.com/get-started)
 - [**KafkaJS**](https://kafka.js.org/)
 - [**tRPC**](https://trpc.io/)
+- [**Fastify**](https://www.fastify.io/)
+- [**Zod**](https://zod.dev/)
+- [**Mocha**](https://mochajs.org/)
+- [**Chai**](https://www.chaijs.com/)
+- [**NYC**](https://github.com/istanbuljs/nyc)
+- [**Sinon**](https://sinonjs.org/)
+- [**Commitlint**](https://commitlint.js.org/)
+- [**Husky**](https://typicode.github.io/husky/#/)
+- [**Lint-staged**](https://github.com/okonet/lint-staged)
 
 # Setting Up Kafka Using Docker
 
@@ -15,8 +25,10 @@ We'll use Docker to simplify the installation process.
 ## Prerequisites
 
 1. **Docker**: Ensure Docker is installed on your machine. You can download it from [here](https://www.docker.com/get-started).
+2. **Bun**: Ensure Bun is installed on your machine. You can download it from [here](https://bun.sh/install).
+   - you can also use npm/yarn with Node.js but Bun is fun.
 
-## Steps to Set Up Kafka
+## Steps to Set Up Kafka locally
 
 ### 1. Run Zookeper and Kafka with Docker
 
@@ -34,7 +46,7 @@ Install project deps.
 Go to root and run:
 
 ```sh
-npm install
+bun install
 ```
 
 ### 2. Run Kafka
@@ -43,7 +55,7 @@ Make sure Docker image is running succesfully.
 Go to root and run:
 
 ```sh
-npm run dev:kafka
+bun run dev:kafka
 ```
 
 The script will start a Kafka consumer that is using batching.
@@ -54,7 +66,7 @@ you can disable batching by setting `KAFKA_MESSAGE_BATCHING` env variable to `fa
 Go to root and run:
 
 ```sh
-npm run dev:server
+bun run dev:server
 ```
 
 ### 4. Run client
@@ -63,7 +75,7 @@ Make sure server is running succesfully.
 Go to root and run:
 
 ```sh
-npm run dev:client
+bun run dev:client
 ```
 
 Go to [localhost](http://localhost:5173/).
@@ -84,14 +96,14 @@ We are using [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) f
 From a specific package root, run:
 
 ```sh
-npm run test
+bun run test
 ```
 
 OR
 From root, run:
 
 ```sh
-npm run test:all
+bun run test:all
 ```
 
 - You can also run per package - see package.json scripts.
@@ -101,14 +113,14 @@ npm run test:all
 From a specific package root, run:
 
 ```sh
-npm run test:coverage:open
+bun run test:coverage:open
 ```
 
 OR
 from root, run:
 
 ```sh
-npm run test:coverage:open:<packageName>
+bun run test:coverage:open:<packageName>
 ```
 
 For specific package.
@@ -116,7 +128,7 @@ For specific package.
 OR
 
 ```sh
-npm run test:coverage:open:all
+bun run test:coverage:open:all
 ```
 
 For all packages.
