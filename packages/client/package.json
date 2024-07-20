@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@event-driven-architecture/server": "workspace:*"
+    "@event-driven-architecture/server": "^0.0.1"
   },
   "devDependencies": {
     "@trpc/client": "^10.45.2",

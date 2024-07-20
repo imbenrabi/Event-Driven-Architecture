@@ -4,7 +4,6 @@ This project implements an event-driven architecture where events/messages are s
 
 # Notable Technologies
 
-- [**Bun**](https://bun.sh/)
 - [**Vite**](https://vitejs.dev/)
 - [**Docker**](https://www.docker.com/get-started)
 - [**KafkaJS**](https://kafka.js.org/)
@@ -28,8 +27,6 @@ We'll use Docker to simplify the installation process.
 ## Prerequisites
 
 1. **Docker**: Ensure Docker is installed on your machine. You can download it from [here](https://www.docker.com/get-started).
-2. **Bun**: Ensure Bun is installed on your machine. You can download it from [here](https://bun.sh/install).
-   - you can also use npm/yarn with Node.js but Bun is fun.
 
 ## Steps to Set Up Kafka locally
 
@@ -49,7 +46,7 @@ Install project deps.
 Go to root and run:
 
 ```sh
-bun install
+npm install
 ```
 
 ### 2. Run Kafka
@@ -58,7 +55,7 @@ Make sure Docker image is running succesfully.
 Go to root and run:
 
 ```sh
-bun run dev:kafka
+npm run dev:kafka
 ```
 
 The script will start a Kafka consumer that is using batching.
@@ -69,7 +66,7 @@ you can disable batching by setting `KAFKA_MESSAGE_BATCHING` env variable to `fa
 Go to root and run:
 
 ```sh
-bun run dev:server
+npm run dev:server
 ```
 
 ### 4. Run client
@@ -78,7 +75,7 @@ Make sure server is running succesfully.
 Go to root and run:
 
 ```sh
-bun run dev:client
+npm run dev:client
 ```
 
 Go to [localhost](http://localhost:5173/).
@@ -99,14 +96,14 @@ We are using [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) f
 From a specific package root, run:
 
 ```sh
-bun run test
+npm run test
 ```
 
 OR
 From root, run:
 
 ```sh
-bun run test:all
+npm run test:all
 ```
 
 - You can also run per package - see package.json scripts.
@@ -116,14 +113,14 @@ bun run test:all
 From a specific package root, run:
 
 ```sh
-bun run test:coverage:open
+npm run test:coverage:open
 ```
 
 OR
 from root, run:
 
 ```sh
-bun run test:coverage:open:<packageName>
+npm run test:coverage:open:<packageName>
 ```
 
 For specific package.
@@ -131,7 +128,7 @@ For specific package.
 OR
 
 ```sh
-bun run test:coverage:open:all
+npm run test:coverage:open:all
 ```
 
 For all packages.

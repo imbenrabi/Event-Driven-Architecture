@@ -2,8 +2,8 @@
 logs
 *.log
 npm-debug.log*
-bun-debug.log*
-bun-error.log*
+npm-debug.log*
+npm-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
