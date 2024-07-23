@@ -17,7 +17,7 @@ export class ProducerPool {
   private readonly DEFAULT_RETRY_INTERVAL_MS: number;
   private static instance: ProducerPool;
 
-  constructor(poolSize: number) {
+  private constructor(poolSize: number) {
     this.poolSize = poolSize;
     this.DEFAULT_RETRY_INTERVAL_MS = 100;
   }
