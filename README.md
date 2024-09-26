@@ -35,7 +35,7 @@ We'll use Docker to simplify the installation process.
 In root, run:
 
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 
 # Running the project
